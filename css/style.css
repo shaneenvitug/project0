@@ -25,6 +25,10 @@ body {
   width: 100px;
 }
 
+#message {
+  display: none;
+}
+
 /* #players {
   text-align: center;
 } */

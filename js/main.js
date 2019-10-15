@@ -20,6 +20,7 @@ $(document).ready(function () {
   // need to fix this!!!!
 
   function isWinner() {
+
     if ((grid1.text() === 'X') && (grid2.text() === 'X') && (grid3.text() === 'X') ||
       (grid4.text() === 'X') && (grid5.text() === 'X') && (grid6.text() === 'X') ||
       (grid7.text() === 'X') && (grid8.text() === 'X') && (grid9.text() === 'X') ||
@@ -28,7 +29,8 @@ $(document).ready(function () {
       (grid3.text() === 'X') && (grid6.text() === 'X') && (grid9.text() === 'X') ||
       (grid1.text() === 'X') && (grid5.text() === 'X') && (grid9.text() === 'X') ||
       (grid3.text() === 'X') && (grid5.text() === 'X') && (grid7.text() === 'X')) {
-      alert('Winner: X');
+      $('#message').append('Winner: X');
+      $('#message').css("display", "block");
       $('.grid-item').text('');
       turns = 0;
     } else if ((grid1.text() === 'O') && (grid2.text() === 'O') && (grid3.text() === 'O') ||
@@ -39,11 +41,13 @@ $(document).ready(function () {
       (grid3.text() === 'O') && (grid6.text() === 'O') && (grid9.text() === 'O') ||
       (grid1.text() === 'O') && (grid5.text() === 'O') && (grid9.text() === 'O') ||
       (grid3.text() === 'O') && (grid5.text() === 'O') && (grid7.text() === 'O')) {
-      alert('Winner: O');
+      $('#message').append('Winner: O');
+      $('#message').css("display", "block");
       $('.grid-item').text('');
       turns = 0;
     } else if (turns === 9) {
-      alert('Tie');
+      $('#message').append('Tie');
+      $('#message').css("display", "block");
       $('.grid-item').text('');
       turns = 0;
     }
