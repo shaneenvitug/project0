@@ -1,5 +1,9 @@
 $(document).ready(function () {
 
+  //object to push player's name, character, wins
+  const game = {
+    players: []
+  }
 
   let playerTurn = 'player1';
   let turns = 0;
@@ -17,8 +21,6 @@ $(document).ready(function () {
 
 
   // function to check who won or if draw
-  // need to fix this!!!!
-
   function isWinner() {
 
     if ((grid1.text() === 'X') && (grid2.text() === 'X') && (grid3.text() === 'X') ||
@@ -29,10 +31,12 @@ $(document).ready(function () {
       (grid3.text() === 'X') && (grid6.text() === 'X') && (grid9.text() === 'X') ||
       (grid1.text() === 'X') && (grid5.text() === 'X') && (grid9.text() === 'X') ||
       (grid3.text() === 'X') && (grid5.text() === 'X') && (grid7.text() === 'X')) {
-      $('#message').append('Winner: X');
-      $('#message').css("display", "block");
-      $('.grid-item').text('');
+
+      game.players[0].wins++
+
+      $('.grid-item').text(''); //reset the game board
       turns = 0;
+
     } else if ((grid1.text() === 'O') && (grid2.text() === 'O') && (grid3.text() === 'O') ||
       (grid4.text() === 'O') && (grid5.text() === 'O') && (grid6.text() === 'O') ||
       (grid7.text() === 'O') && (grid8.text() === 'O') && (grid9.text() === 'O') ||
@@ -41,21 +45,17 @@ $(document).ready(function () {
       (grid3.text() === 'O') && (grid6.text() === 'O') && (grid9.text() === 'O') ||
       (grid1.text() === 'O') && (grid5.text() === 'O') && (grid9.text() === 'O') ||
       (grid3.text() === 'O') && (grid5.text() === 'O') && (grid7.text() === 'O')) {
-      $('#message').append('Winner: O');
-      $('#message').css("display", "block");
-      $('.grid-item').text('');
+
+      game.players[1].wins++
+
+      $('.grid-item').text(''); //reset the game board
       turns = 0;
+
     } else if (turns === 9) {
-      $('#message').append('Tie');
-      $('#message').css("display", "block");
-      $('.grid-item').text('');
+      $('.grid-item').text(''); //reset the game board
       turns = 0;
     }
   }
-
-  // function to reset the game
-
-
 
   // function to show X or O on clicked grid
   $('.grid-item').click(function (event) {
@@ -72,6 +72,18 @@ $(document).ready(function () {
     isWinner();
   });
 
+  $('button').click(function (event) {
+    console.log('Add player!')
+    game.players.push({
+      name: $('#addPlayerName').val(),
+      character: $('#addPlayerCharacter').val(),
+      wins: 0,
+      loses: 0,
+      draws: 0
+    })
+    $('#player1 h3').text(`Player 1: ${game.players[0].name} - ${game.players[0].character}`)
+    console.log('players!', game.players)
+  })
 
 
 

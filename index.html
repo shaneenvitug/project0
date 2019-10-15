@@ -1,5 +1,4 @@
 <html>
-
 <head>
   <meta charset="UTF-8">
   <title>Tic Tac Toe</title>
@@ -7,14 +6,34 @@
   <script src="js/jquery-1.7.2.js"></script>
   <script src="js/main.js"></script>
 </head>
+
 <header>
-<h1>TIC TAC TOE</h1>
+<h1>Tic Tac Toe</h1>
 <div id="players">
-<input id="playerX" type="button" value="Player X" />
-<input id="playerO" type="button" value="Player O" />
+
+  <div id="player1">
+    <h3>Player 1</h3>
+    <h1>X</h1>
+    <p>Wins: 0</p>
+  </div>
+
+  <div id="addPlayer">
+    <input type="text" id="addPlayerName" placeholder="playerOneName" />
+    <input type="text" id="addPlayerCharacter" placeholder="playerOneCharacter" />
+    <input type="button" id="addPlayerButton" value="Add player" />
+  </div>
+
+  <div id="player2">
+    <h3>Player 2</h3>
+    <h1>O</h1>
+    <p>Wins: 0</p>
+  </div>
+  
 </div>
 </header>
+
 <body>
+<!--Game Board-->
   <div id="container">
     <div class="grid-item" id="top-left"></div>
     <div class="grid-item" id="top-mid"></div>
@@ -26,11 +45,5 @@
     <div class="grid-item" id="bottom-mid"></div>
     <div class="grid-item" id="bottom-right"></div>
   </div>
-  <div id="message">
-  </div>
 </body>
-<footer>
-<!-- score and reset game buttons insert here -->
-</footer>
-
 </html>
