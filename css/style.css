@@ -12,26 +12,23 @@ body {
 
 #players {
   display: flex;
-  width: 25em;
-  height: 8em;
+  width: 600px;
   margin: 0 auto;
+  justify-content: space-around;
 }
 
-#player1,
-#player2,
-#addPlayer {
+#players div {
+  margin: 20px;
   flex: 1;
-  justify-content: space-around;
-  width: 8em;
-  height: 8em;
   border: 1px solid black;
+  padding: 5px;
+  width: 250px;
+  text-align: center;
 }
 
 #container {
   display: inline-grid;
   grid-template-columns: auto auto auto;
-  height: 300px;
-  width: 300px;
   margin: 0 auto;
 }
 
