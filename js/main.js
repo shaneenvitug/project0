@@ -17,6 +17,7 @@ $(document).ready(function () {
 
 
   // function to check who won or if draw
+  // need to fix this!!!!
 
   function isWinner() {
     if ((grid1.text() === 'X') && (grid2.text() === 'X') && (grid3.text() === 'X') ||
