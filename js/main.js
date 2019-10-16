@@ -7,8 +7,6 @@ $(document).ready(function () {
 
   let playerTurn = 'player1';
   let turns = 0;
-  // let x = game.players[0] && game.players[0].character || 'X'; //variable renamed to identify player 1's character as 'X'
-  // let o = game.players[1] && game.players[1].character || 'O'; //variable renamed to identify player 2's character as 'O'
 
   // Grid position Variables
   const grid1 = $('#top-left');
@@ -62,6 +60,9 @@ $(document).ready(function () {
 
   // function to show X or O on clicked grid
   $('.grid-item').click(function (event) {
+    if ($(this).text().length == 0) {
+      alert('Add player now to start playing');
+    }
     if (game.players.length === 2) {
       if ($(this).text().length == 0) {
         if (playerTurn === 'player1') {
@@ -97,7 +98,7 @@ $(document).ready(function () {
 
   });
 
-  //function to reset everything 
+  //function to reset everything or new game
   $('#newGameButton').click(function () {
     $('.grid-item').text('');
     $('#player1 h3').text('Player 1');
