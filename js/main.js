@@ -36,6 +36,7 @@ $(document).ready(function () {
       (grid3.text() === 'X') && (grid5.text() === 'X') && (grid7.text() === 'X')) {
 
       game.players[0].wins++
+      $('#player1 p').text('Wins: ' + game.players[0].wins);
 
       $('.grid-item').text(''); //reset the game board
       turns = 0;
@@ -50,6 +51,7 @@ $(document).ready(function () {
       (grid3.text() === 'O') && (grid5.text() === 'O') && (grid7.text() === 'O')) {
 
       game.players[1].wins++
+      $('#player1 p').text('Wins: ' + game.players[1].wins);
 
       $('.grid-item').text(''); //reset the game board
       turns = 0;
