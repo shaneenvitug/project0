@@ -1,29 +1,61 @@
 @import url('https://fonts.googleapis.com/css?family=Varela+Round&display=swap');
 
+header {
+  margin-bottom: 20px;
+}
+
+h1 {
+  margin: -2px;
+  color: white;
+}
+
 h1,
 div {
   font-family: 'Varela Round', sans-serif;
   text-align: center;
 }
 
+div h1 {
+  font-size: 4em;
+  color: white;
+}
+
+div p {
+  margin: -13px;
+  color: white;
+}
+
+h3 {
+  margin: -4px;
+  font-size: 15px;
+  color: white;
+}
+
+input {
+  width: 8em;
+  margin: 2px;
+}
+
 body {
   text-align: center;
+  background-color: #3BB4BC;
 }
 
 #players {
   display: flex;
-  width: 600px;
+  width: 410px;
   margin: 0 auto;
   justify-content: space-around;
+  height: 130px;
 }
 
 #players div {
-  margin: 20px;
+  margin: 10px;
   flex: 1;
-  border: 1px solid black;
+  border: 5px solid white;
   padding: 5px;
-  width: 250px;
   text-align: center;
+  border-radius: 12px;
 }
 
 #container {
@@ -33,14 +65,13 @@ body {
 }
 
 .grid-item {
-  background-color: orange;
-  border: 1px solid;
+  border: 5px solid white;
   padding: 20px;
   text-align: center;
   font-size: 80px;
   font-weight: bold;
   font-family: 'Varela Round', sans-serif;
   color: white;
-  height: 100px;
-  width: 100px;
+  height: 80px;
+  width: 80px;
 }
