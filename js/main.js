@@ -19,6 +19,9 @@ $(document).ready(function () {
   const grid8 = $('#bottom-mid');
   const grid9 = $('#bottom-right');
 
+  //function to reset wins or game board
+
+  // const resetWins
 
   // function to check who won or if draw
   function isWinner() {
@@ -61,10 +64,10 @@ $(document).ready(function () {
   $('.grid-item').click(function (event) {
     if ($(this).text().length == 0) {
       if (playerTurn === 'player1') {
-        $(this).append('X');
+        $(this).append(game.players[0].character || 'X');
         playerTurn = 'player2';
       } else {
-        $(this).append('O');
+        $(this).append(game.players[1].character || 'O');
         playerTurn = 'player1';
       }
       turns++;
@@ -76,11 +79,25 @@ $(document).ready(function () {
     game.players.push({
       name: $('#addPlayerName').val(),
       character: $('#addPlayerCharacter').val(),
-    })
-    $('#player1 h3').text();
-    $('#player1 h1').text();
-  })
+      wins: 0
+    });
 
+
+    $('#player1 h3').text(game.players[0].name);
+    $('#player1 h1').text((game.players[0].character) || 'X');
+
+    if (game.players[1]) {
+      $('#player2 h3').text(game.players[1].name);
+      $('#player2 h1').text((game.players[1].character) || 'O');
+    }
+
+  });
+
+  // message function who won or if draw
+
+  // const showMessage = function () {
+
+  // }
 
 
 

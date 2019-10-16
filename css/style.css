@@ -105,3 +105,21 @@ footer input {
   border-radius: 12px;
   height: 2.4em;
 }
+
+#container .grid-item:hover,
+footer input:hover {
+  cursor: pointer;
+  background: #5c8789;
+}
+
+/* #message {
+  text-align: center;
+  height: 360px;
+  width: 360px;
+  margin: 0 auto;
+  border: 5px solid white;
+
+  /* visibility: hidden; */
+}
+
+*/
