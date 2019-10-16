@@ -72,17 +72,13 @@ $(document).ready(function () {
     isWinner();
   });
 
-  $('button').click(function (event) {
-    console.log('Add player!')
+  $('#addPlayerButton').click(function (event) {
     game.players.push({
       name: $('#addPlayerName').val(),
       character: $('#addPlayerCharacter').val(),
-      wins: 0,
-      loses: 0,
-      draws: 0
     })
-    $('#player1 h3').text(`Player 1: ${game.players[0].name} - ${game.players[0].character}`)
-    console.log('players!', game.players)
+    $('#player1 h3').text();
+    $('#player1 h1').text();
   })
 
 
