@@ -7,6 +7,8 @@ $(document).ready(function () {
 
   let playerTurn = 'player1';
   let turns = 0;
+  // let x = game.players[0] && game.players[0].character || 'X'; //variable renamed to identify player 1's character as 'X'
+  // let o = game.players[1] && game.players[1].character || 'O'; //variable renamed to identify player 2's character as 'O'
 
   // Grid position Variables
   const grid1 = $('#top-left');
@@ -19,21 +21,17 @@ $(document).ready(function () {
   const grid8 = $('#bottom-mid');
   const grid9 = $('#bottom-right');
 
-  //function to reset wins or game board
-
-  // const resetWins
-
   // function to check who won or if draw
   function isWinner() {
 
-    if ((grid1.text() === 'X') && (grid2.text() === 'X') && (grid3.text() === 'X') ||
-      (grid4.text() === 'X') && (grid5.text() === 'X') && (grid6.text() === 'X') ||
-      (grid7.text() === 'X') && (grid8.text() === 'X') && (grid9.text() === 'X') ||
-      (grid1.text() === 'X') && (grid4.text() === 'X') && (grid7.text() === 'X') ||
-      (grid2.text() === 'X') && (grid5.text() === 'X') && (grid8.text() === 'X') ||
-      (grid3.text() === 'X') && (grid6.text() === 'X') && (grid9.text() === 'X') ||
-      (grid1.text() === 'X') && (grid5.text() === 'X') && (grid9.text() === 'X') ||
-      (grid3.text() === 'X') && (grid5.text() === 'X') && (grid7.text() === 'X')) {
+    if ((grid1.text() === game.players[0].character) && (grid2.text() === game.players[0].character) && (grid3.text() === game.players[0].character) ||
+      (grid4.text() === game.players[0].character) && (grid5.text() === game.players[0].character) && (grid6.text() === game.players[0].character) ||
+      (grid7.text() === game.players[0].character) && (grid8.text() === game.players[0].character) && (grid9.text() === game.players[0].character) ||
+      (grid1.text() === game.players[0].character) && (grid4.text() === game.players[0].character) && (grid7.text() === game.players[0].character) ||
+      (grid2.text() === game.players[0].character) && (grid5.text() === game.players[0].character) && (grid8.text() === game.players[0].character) ||
+      (grid3.text() === game.players[0].character) && (grid6.text() === game.players[0].character) && (grid9.text() === game.players[0].character) ||
+      (grid1.text() === game.players[0].character) && (grid5.text() === game.players[0].character) && (grid9.text() === game.players[0].character) ||
+      (grid3.text() === game.players[0].character) && (grid5.text() === game.players[0].character) && (grid7.text() === game.players[0].character)) {
 
       game.players[0].wins++
       $('#player1 p').text('Wins: ' + game.players[0].wins);
@@ -41,17 +39,17 @@ $(document).ready(function () {
       $('.grid-item').text(''); //reset the game board
       turns = 0;
 
-    } else if ((grid1.text() === 'O') && (grid2.text() === 'O') && (grid3.text() === 'O') ||
-      (grid4.text() === 'O') && (grid5.text() === 'O') && (grid6.text() === 'O') ||
-      (grid7.text() === 'O') && (grid8.text() === 'O') && (grid9.text() === 'O') ||
-      (grid1.text() === 'O') && (grid4.text() === 'O') && (grid7.text() === 'O') ||
-      (grid2.text() === 'O') && (grid5.text() === 'O') && (grid8.text() === 'O') ||
-      (grid3.text() === 'O') && (grid6.text() === 'O') && (grid9.text() === 'O') ||
-      (grid1.text() === 'O') && (grid5.text() === 'O') && (grid9.text() === 'O') ||
-      (grid3.text() === 'O') && (grid5.text() === 'O') && (grid7.text() === 'O')) {
+    } else if ((grid1.text() === game.players[1].character) && (grid2.text() === game.players[1].character) && (grid3.text() === game.players[1].character) ||
+      (grid4.text() === game.players[1].character) && (grid5.text() === game.players[1].character) && (grid6.text() === game.players[1].character) ||
+      (grid7.text() === game.players[1].character) && (grid8.text() === game.players[1].character) && (grid9.text() === game.players[1].character) ||
+      (grid1.text() === game.players[1].character) && (grid4.text() === game.players[1].character) && (grid7.text() === game.players[1].character) ||
+      (grid2.text() === game.players[1].character) && (grid5.text() === game.players[1].character) && (grid8.text() === game.players[1].character) ||
+      (grid3.text() === game.players[1].character) && (grid6.text() === game.players[1].character) && (grid9.text() === game.players[1].character) ||
+      (grid1.text() === game.players[1].character) && (grid5.text() === game.players[1].character) && (grid9.text() === game.players[1].character) ||
+      (grid3.text() === game.players[1].character) && (grid5.text() === game.players[1].character) && (grid7.text() === game.players[1].character)) {
 
       game.players[1].wins++
-      $('#player1 p').text('Wins: ' + game.players[1].wins);
+      $('#player2 p').text('Wins: ' + game.players[1].wins);
 
       $('.grid-item').text(''); //reset the game board
       turns = 0;
@@ -64,26 +62,30 @@ $(document).ready(function () {
 
   // function to show X or O on clicked grid
   $('.grid-item').click(function (event) {
-    if ($(this).text().length == 0) {
-      if (playerTurn === 'player1') {
-        $(this).append(game.players[0].character || 'X');
-        playerTurn = 'player2';
-      } else {
-        $(this).append(game.players[1].character || 'O');
-        playerTurn = 'player1';
+    if (game.players.length === 2) {
+      if ($(this).text().length == 0) {
+        if (playerTurn === 'player1') {
+          $(this).append(game.players[0] && game.players[0].character || 'X');
+          playerTurn = 'player2';
+        } else {
+          $(this).append(game.players[1] && game.players[1].character || 'O');
+          playerTurn = 'player1';
+        }
+        turns++;
       }
-      turns++;
+      isWinner();
     }
-    isWinner();
   });
 
+
+
+  // function to add player and character once add player button is clicked
   $('#addPlayerButton').click(function (event) {
     game.players.push({
       name: $('#addPlayerName').val(),
       character: $('#addPlayerCharacter').val(),
       wins: 0
     });
-
 
     $('#player1 h3').text(game.players[0].name);
     $('#player1 h1').text((game.players[0].character) || 'X');
@@ -95,11 +97,34 @@ $(document).ready(function () {
 
   });
 
-  // message function who won or if draw
+  //function to reset everything 
+  $('#newGameButton').click(function () {
+    $('.grid-item').text('');
+    $('#player1 h3').text('Player 1');
+    $('#player1 h1').text('X');
+    $('#player1 p').text('Wins: 0');
+    $('#player2 h3').text('Player 2');
+    $('#player2 h1').text('O');
+    $('#player2 p').text('Wins: 0');
+    $('#addPlayerName').val('');
+    $('#addPlayerCharacter').val('');
+    game.players = [];
+    playerTurn = 'player1';
+    turns = 0;
+  })
 
-  // const showMessage = function () {
+  //function to reset wins
+  $('#resetWinsButton').click(function () {
+    $('.grid-item').text('');
+    game.players[0].wins = 0;
+    game.players[1].wins = 0;
+    $('#player1 p').text('Wins: 0');
+    $('#player2 p').text('Wins: 0');
+  })
 
-  // }
+
+
+
 
 
 
