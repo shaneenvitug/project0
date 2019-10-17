@@ -76,7 +76,8 @@ $(document).ready(function () {
         showMessage();
 
       }
-    } else if (turns === 9) {
+    }
+    if (turns === 9) {
       $('#message h1').text(playerOne + ' ' + playerTwo);
       $('#message h3').text("");
       $('#message p').text('Tie Game!');
