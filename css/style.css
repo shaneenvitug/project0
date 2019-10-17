@@ -1,4 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:900&display=swap');
+
+
+body {
+  background-image: url("../image/2744928.png");
+  background-size: cover;
+}
 
 header {
   margin-bottom: 10px;
@@ -9,6 +16,20 @@ h1 {
   color: white;
 }
 
+#title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3.5em;
+}
+
+#tic,
+#toe {
+  color: #FFD032;
+}
+
+#tac {
+  color: #EB1751;
+}
+
 h1,
 div {
   font-family: 'Varela Round', sans-serif;
@@ -16,8 +37,9 @@ div {
 }
 
 div h1 {
-  font-size: 4em;
+  font-size: 3.5em;
   color: white;
+  margin-top: -5px;
 }
 
 div p {
@@ -26,7 +48,7 @@ div p {
 }
 
 h3 {
-  margin: -4px;
+  margin: 2px;
   font-size: 15px;
   color: white;
 }
@@ -38,7 +60,7 @@ input {
 
 body {
   text-align: center;
-  background-color: #3BB4BC;
+  background-color: #461461;
 }
 
 #players {
@@ -53,10 +75,11 @@ body {
 #players div {
   margin: 10px;
   flex: 1;
-  border: 5px solid white;
+  border: 5px solid #8556af;
   padding: 5px;
   text-align: center;
   border-radius: 12px;
+  background-color: #41116b;
 }
 
 #container {
@@ -64,20 +87,23 @@ body {
   grid-template-columns: auto auto auto;
   margin: 0 auto;
   margin-bottom: 5px;
-  z-index: 1;
+  background-color: #8556af;
+  border: 5px solid #8556af;
+  border-radius: 12px;
 }
 
 .grid-item {
-  border: 5px solid white;
+  border: 5px solid #8556af;
   padding: 20px;
   text-align: center;
   font-size: 80px;
   font-weight: bold;
   font-family: 'Varela Round', sans-serif;
   color: white;
-  height: 70px;
-  width: 70px;
-  z-index: 1;
+  height: 65px;
+  width: 65px;
+  border-radius: 12px;
+  background-color: #41116b;
 }
 
 #addPlayerName {
@@ -92,7 +118,7 @@ body {
 
 footer {
   display: flex;
-  width: 350px;
+  width: 380px;
   margin: 0 auto;
 }
 
@@ -101,24 +127,43 @@ footer input {
   flex: 1;
   font-size: 20px;
   font-family: 'Varela Round', sans-serif;
-  color: #3BB4BC;
-  background-color: lightgrey;
+  color: white;
   margin: 15px;
   border-radius: 12px;
   height: 2.4em;
 }
 
-#container .grid-item:hover,
-footer input:hover {
+
+
+#newGameButton {
+  background-color: #EB1751;
+  border: none;
+}
+
+#resetWinsButton {
+  background-color: #e8b406;
+  border: none;
+}
+
+#container .grid-item:hover {
   cursor: pointer;
-  background: #5c8789;
+  background: #802698;
+}
+
+#newGameButton:hover {
+  cursor: pointer;
+  background: #ac143d;
+}
+
+#resetWinsButton:hover {
+  cursor: pointer;
+  background: #c99c06;
 }
 
 #message {
   position: absolute;
   top: 182px;
   left: 460px;
-  z-index: 0;
   border: 5px solid white;
   height: 350px;
   width: 350px;
