@@ -125,6 +125,8 @@ footer input:hover {
   margin: 0 auto;
   background-color: white;
   visibility: hidden;
+  border-radius: 12px;
+
 }
 
 #message h1 {

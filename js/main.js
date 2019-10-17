@@ -19,23 +19,27 @@ $(document).ready(function () {
   const grid8 = $('#bottom-mid');
   const grid9 = $('#bottom-right');
 
+  //function to show message
+
+  const showMessage = function () {
+    $('#message').css('visibility', 'visible');
+    $('#container').css('visibility', 'hidden');
+
+  };
+
+  const closeMessage = function () {
+    $('#message').css('visibility', 'hidden');
+    $('#container').css('visibility', 'visible');
+  }
+
+
   // function to check who won or if draw
   function isWinner(player0 = 'X', player1 = 'O') {
-    console.log("grid.text()", grid1.text());
-    console.log("game.players[0].character", game.players[0].character);
 
     let playerOne = game.players[0].character;
     let playerTwo = game.players[1].character;
-    console.log('playerOne', playerOne);
-    console.log('playerOnelength', playerOne.length);
-    console.log("condition", playerOne.length < 1);
 
-
-    if (playerOne.length == 0) {
-      playerOne = player0;
-
-
-      console.log("===>>>", playerOne);
+    if (playerOne.length == 0 ? playerOne = player0 : playerOne) {
 
       if ((grid1.text() === playerOne) && (grid2.text() === playerOne) && (grid3.text() === playerOne) ||
         (grid4.text() === playerOne) && (grid5.text() === playerOne) && (grid6.text() === playerOne) ||
@@ -54,8 +58,8 @@ $(document).ready(function () {
 
       }
     }
-    if (playerTwo.length < 1) {
-      playerTwo = player1;
+    if (playerTwo.length == 0 ? playerTwo = player1 : playerTwo) {
+
       if ((grid1.text() === playerTwo) && (grid2.text() === playerTwo) && (grid3.text() === playerTwo) ||
         (grid4.text() === playerTwo) && (grid5.text() === playerTwo) && (grid6.text() === playerTwo) ||
         (grid7.text() === playerTwo) && (grid8.text() === playerTwo) && (grid9.text() === playerTwo) ||
@@ -140,6 +144,7 @@ $(document).ready(function () {
     game.players[1].wins = 0;
     $('#player1 p').text('Wins: 0');
     $('#player2 p').text('Wins: 0');
+    showMessage();
   })
 
 
