@@ -30,6 +30,6 @@ Languages used:
 - CSS
 - JavaScript/jQuery
 
-To access the game, go to [shaneenvitug.github.io/project0](shaneenvitug.github.io/project0)
+To access the game, go to [shaneenvitug.github.io/project0](https://shaneenvitug.github.io/project0/)
 
 **To play**: input player 1's name and character(either X or O, or any symbol) then press add player. Do the same for player 2's name and character. Then click on the grid alternately per player until one wins and gets 3 in a row or draw if none. The wins counter will track the score and reset wins button can reset the score. New game will restart everything. Pretty simple, right? Have fun!
