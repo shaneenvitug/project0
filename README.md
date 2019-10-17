@@ -17,7 +17,7 @@
 - [x] Build a dynamic game that allows two players to compete
 - [x] Build a web application from scratch, without a starter codebase
 - [x] Use your programming skills to map out the game logic for a simple game like Tic Tac Toe
-- [ x]Keep track of multiple game rounds with a win counter
+- [x] Keep track of multiple game rounds with a win counter
 
 ### To improve or to do list
 
