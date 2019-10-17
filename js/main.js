@@ -20,38 +20,58 @@ $(document).ready(function () {
   const grid9 = $('#bottom-right');
 
   // function to check who won or if draw
-  function isWinner() {
+  function isWinner(player0 = 'X', player1 = 'O') {
+    console.log("grid.text()", grid1.text());
+    console.log("game.players[0].character", game.players[0].character);
 
-    if ((grid1.text() === game.players[0].character) && (grid2.text() === game.players[0].character) && (grid3.text() === game.players[0].character) ||
-      (grid4.text() === game.players[0].character) && (grid5.text() === game.players[0].character) && (grid6.text() === game.players[0].character) ||
-      (grid7.text() === game.players[0].character) && (grid8.text() === game.players[0].character) && (grid9.text() === game.players[0].character) ||
-      (grid1.text() === game.players[0].character) && (grid4.text() === game.players[0].character) && (grid7.text() === game.players[0].character) ||
-      (grid2.text() === game.players[0].character) && (grid5.text() === game.players[0].character) && (grid8.text() === game.players[0].character) ||
-      (grid3.text() === game.players[0].character) && (grid6.text() === game.players[0].character) && (grid9.text() === game.players[0].character) ||
-      (grid1.text() === game.players[0].character) && (grid5.text() === game.players[0].character) && (grid9.text() === game.players[0].character) ||
-      (grid3.text() === game.players[0].character) && (grid5.text() === game.players[0].character) && (grid7.text() === game.players[0].character)) {
+    let playerOne = game.players[0].character;
+    let playerTwo = game.players[1].character;
+    console.log('playerOne', playerOne);
+    console.log('playerOnelength', playerOne.length);
+    console.log("condition", playerOne.length < 1);
 
-      game.players[0].wins++
-      $('#player1 p').text('Wins: ' + game.players[0].wins);
 
-      $('.grid-item').text(''); //reset the game board
-      turns = 0;
+    if (playerOne.length == 0) {
+      playerOne = player0;
 
-    } else if ((grid1.text() === game.players[1].character) && (grid2.text() === game.players[1].character) && (grid3.text() === game.players[1].character) ||
-      (grid4.text() === game.players[1].character) && (grid5.text() === game.players[1].character) && (grid6.text() === game.players[1].character) ||
-      (grid7.text() === game.players[1].character) && (grid8.text() === game.players[1].character) && (grid9.text() === game.players[1].character) ||
-      (grid1.text() === game.players[1].character) && (grid4.text() === game.players[1].character) && (grid7.text() === game.players[1].character) ||
-      (grid2.text() === game.players[1].character) && (grid5.text() === game.players[1].character) && (grid8.text() === game.players[1].character) ||
-      (grid3.text() === game.players[1].character) && (grid6.text() === game.players[1].character) && (grid9.text() === game.players[1].character) ||
-      (grid1.text() === game.players[1].character) && (grid5.text() === game.players[1].character) && (grid9.text() === game.players[1].character) ||
-      (grid3.text() === game.players[1].character) && (grid5.text() === game.players[1].character) && (grid7.text() === game.players[1].character)) {
 
-      game.players[1].wins++
-      $('#player2 p').text('Wins: ' + game.players[1].wins);
+      console.log("===>>>", playerOne);
 
-      $('.grid-item').text(''); //reset the game board
-      turns = 0;
+      if ((grid1.text() === playerOne) && (grid2.text() === playerOne) && (grid3.text() === playerOne) ||
+        (grid4.text() === playerOne) && (grid5.text() === playerOne) && (grid6.text() === playerOne) ||
+        (grid7.text() === playerOne) && (grid8.text() === playerOne) && (grid9.text() === playerOne) ||
+        (grid1.text() === playerOne) && (grid4.text() === playerOne) && (grid7.text() === playerOne) ||
+        (grid2.text() === playerOne) && (grid5.text() === playerOne) && (grid8.text() === playerOne) ||
+        (grid3.text() === playerOne) && (grid6.text() === playerOne) && (grid9.text() === playerOne) ||
+        (grid1.text() === playerOne) && (grid5.text() === playerOne) && (grid9.text() === playerOne) ||
+        (grid3.text() === playerOne) && (grid5.text() === playerOne) && (grid7.text() === playerOne)) {
 
+        game.players[0].wins++
+        $('#player1 p').text('Wins: ' + game.players[0].wins);
+
+        $('.grid-item').text(''); //reset the game board
+        turns = 0;
+
+      }
+    }
+    if (playerTwo.length < 1) {
+      playerTwo = player1;
+      if ((grid1.text() === playerTwo) && (grid2.text() === playerTwo) && (grid3.text() === playerTwo) ||
+        (grid4.text() === playerTwo) && (grid5.text() === playerTwo) && (grid6.text() === playerTwo) ||
+        (grid7.text() === playerTwo) && (grid8.text() === playerTwo) && (grid9.text() === playerTwo) ||
+        (grid1.text() === playerTwo) && (grid4.text() === playerTwo) && (grid7.text() === playerTwo) ||
+        (grid2.text() === playerTwo) && (grid5.text() === playerTwo) && (grid8.text() === playerTwo) ||
+        (grid3.text() === playerTwo) && (grid6.text() === playerTwo) && (grid9.text() === playerTwo) ||
+        (grid1.text() === playerTwo) && (grid5.text() === playerTwo) && (grid9.text() === playerTwo) ||
+        (grid3.text() === playerTwo) && (grid5.text() === playerTwo) && (grid7.text() === playerTwo)) {
+
+        game.players[1].wins++
+        $('#player2 p').text('Wins: ' + game.players[1].wins);
+
+        $('.grid-item').text(''); //reset the game board
+        turns = 0;
+
+      }
     } else if (turns === 9) {
       $('.grid-item').text(''); //reset the game board
       turns = 0;
@@ -60,22 +80,21 @@ $(document).ready(function () {
 
   // function to show X or O on clicked grid
   $('.grid-item').click(function (event) {
-    if ($(this).text().length == 0) {
-      alert('Add player now to start playing');
-    }
+
     if (game.players.length === 2) {
       if ($(this).text().length == 0) {
         if (playerTurn === 'player1') {
-          $(this).append(game.players[0] && game.players[0].character || 'X');
+          $(this).append(game.players[0].character || 'X');
           playerTurn = 'player2';
         } else {
-          $(this).append(game.players[1] && game.players[1].character || 'O');
+          $(this).append(game.players[1].character || 'O');
           playerTurn = 'player1';
         }
         turns++;
       }
-      isWinner();
+
     }
+    isWinner();
   });
 
 
