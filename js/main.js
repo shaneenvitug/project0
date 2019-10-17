@@ -24,14 +24,7 @@ $(document).ready(function () {
   const showMessage = function () {
     $('#message').css('visibility', 'visible');
     $('#container').css('visibility', 'hidden');
-
   };
-
-  const closeMessage = function () {
-    $('#message').css('visibility', 'hidden');
-    $('#container').css('visibility', 'visible');
-  }
-
 
   // function to check who won or if draw
   function isWinner(player0 = 'X', player1 = 'O') {
@@ -53,8 +46,11 @@ $(document).ready(function () {
         game.players[0].wins++
         $('#player1 p').text('Wins: ' + game.players[0].wins);
 
+        $('#message h1').text(playerOne);
+        $('#message h3').text(game.players[0].name);
         $('.grid-item').text(''); //reset the game board
         turns = 0;
+        showMessage();
 
       }
     }
@@ -72,13 +68,21 @@ $(document).ready(function () {
         game.players[1].wins++
         $('#player2 p').text('Wins: ' + game.players[1].wins);
 
+        $('#message h1').text(playerTwo);
+        $('#message h3').text(game.players[1].name);
+
         $('.grid-item').text(''); //reset the game board
         turns = 0;
+        showMessage();
 
       }
     } else if (turns === 9) {
+      $('#message h1').text(playerOne + ' ' + playerTwo);
+      $('#message h3').text("");
+      $('#message p').text('Tie Game!');
       $('.grid-item').text(''); //reset the game board
       turns = 0;
+      showMessage();
     }
   }
 
@@ -144,9 +148,13 @@ $(document).ready(function () {
     game.players[1].wins = 0;
     $('#player1 p').text('Wins: 0');
     $('#player2 p').text('Wins: 0');
-    showMessage();
   })
 
+  //function to close message once clicked
+  $('#message').click(function () {
+    $('#message').css('visibility', 'hidden');
+    $('#container').css('visibility', 'visible');
+  })
 
 
 
