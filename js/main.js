@@ -80,7 +80,7 @@ $(document).ready(function () {
     if (turns === 9) {
       $('#message h1').text(playerOne + ' ' + playerTwo);
       $('#message h3').text("");
-      $('#message p').text('Tie Game!');
+      $('#message p').text('Tie!');
       $('.grid-item').text(''); //reset the game board
       turns = 0;
       showMessage();
