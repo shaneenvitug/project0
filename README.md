@@ -23,6 +23,7 @@
 
 - [x] Make the game mobile responsive
 - [ ] Use LocalStorage to persist data locally to allow games to continue after page refresh or loss of internet connectivity
+- [ ] Fix bug - message shows tie even when a player wins after a tie has happened
 
 Languages used:
 
