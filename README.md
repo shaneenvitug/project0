@@ -21,7 +21,7 @@
 
 ### To improve or to do list
 
-- [ ] Make the game mobile responsive
+- [x] Make the game mobile responsive
 - [ ] Use LocalStorage to persist data locally to allow games to continue after page refresh or loss of internet connectivity
 
 Languages used:
