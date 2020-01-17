@@ -5,6 +5,9 @@
 body {
   background-image: url("../image/2744928.png");
   background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  background-color: #464646;
 }
 
 header {
