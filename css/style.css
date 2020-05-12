@@ -65,7 +65,8 @@ h3 {
 }
 
 input {
-  width: 8em;
+  width: 6rem;
+  height: 1.5rem;
   margin: 2px;
 }
 
@@ -76,10 +77,10 @@ body {
 
 #players {
   display: flex;
-  width: 380px;
+  width: 500px;
+  height: 10rem;
   margin: 0 auto;
   justify-content: space-around;
-  height: 130px;
   margin-bottom:
 }
 
@@ -91,6 +92,7 @@ body {
   text-align: center;
   border-radius: 12px;
   background-color: #41116b;
+  padding: 1rem;
 }
 
 #container {
@@ -105,7 +107,7 @@ body {
 
 .grid-item {
   border: 5px solid #8556af;
-  padding: 20px;
+  padding: 40px;
   text-align: center;
   font-size: 56px;
   font-weight: bold;
@@ -129,7 +131,6 @@ body {
 
 #addPlayerButton {
   margin-top: 1em;
-  width: 7em;
   border-radius: 3px;
   background-color: #e8b406;
   border: none;
@@ -182,7 +183,7 @@ footer input {
 
 #message {
   position: absolute;
-  top: 209px;
+  top: 300px;
   left: -50%;
   right: -50%;
   border: 10px solid #8556af;
@@ -192,7 +193,10 @@ footer input {
   background-color: #41116b;
   visibility: hidden;
   border-radius: 12px;
+}
 
+#message:hover {
+  cursor: pointer;
 }
 
 #message h1 {
@@ -213,4 +217,9 @@ footer input {
   color: #EB1751;
   margin-top: 18px;
   font-family: 'Montserrat', sans-serif;
+}
+
+#message p.clearMessage {
+  font-size: 1.5rem;
+  margin-top: .7rem;
 }

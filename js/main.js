@@ -1,8 +1,19 @@
 $(document).ready(function () {
 
-  //object to push player's name, character, wins
+  // object to push player's name, character, wins
   const game = {
-    players: []
+    players: [
+      {
+        name: "Player 1",
+        character: "X",
+        wins: 0
+      },
+      {
+        name: "Player 2",
+        character: "O",
+        wins: 0
+      }
+    ]
   }
 
   let playerTurn = 'player1';
@@ -19,8 +30,7 @@ $(document).ready(function () {
   const grid8 = $('#bottom-mid');
   const grid9 = $('#bottom-right');
 
-  //function to show message
-
+  // function to show message
   const showMessage = function () {
     $('#message').css('visibility', 'visible');
     $('#container').css('visibility', 'hidden');
@@ -29,8 +39,8 @@ $(document).ready(function () {
   // function to check who won or if draw
   function isWinner(player0 = 'X', player1 = 'O') {
 
-    let playerOne = game.players[0].character;
-    let playerTwo = game.players[1].character;
+    let playerOne = game.players[0] && game.players[0].character || player0;
+    let playerTwo = game.players[1] && game.players[1].character || player1;
 
     if (playerOne.length == 0 ? playerOne = player0 : playerOne) {
 
@@ -89,41 +99,37 @@ $(document).ready(function () {
 
   // function to show X or O on clicked grid
   $('.grid-item').click(function (event) {
-
-    if (game.players.length === 2) {
       if ($(this).text().length == 0) {
         if (playerTurn === 'player1') {
-          $(this).append(game.players[0].character || 'X');
+          $(this).append(game.players[0] && game.players[0].character || 'X');
           playerTurn = 'player2';
         } else {
-          $(this).append(game.players[1].character || 'O');
+          $(this).append(game.players[1] && game.players[1].character || 'O');
           playerTurn = 'player1';
         }
         turns++;
       }
 
-    }
     isWinner();
   });
 
-
-
   // function to add player and character once add player button is clicked
   $('#addPlayerButton').click(function (event) {
-    game.players.push({
-      name: $('#addPlayerName').val(),
-      character: $('#addPlayerCharacter').val(),
-      wins: 0
-    });
-
-    $('#player1 h3').text(game.players[0].name);
-    $('#player1 h1').text((game.players[0].character) || 'X');
-
-    if (game.players[1]) {
+    if (game.players[0].name === "Player 1") {
+      game.players[0].name = $('#addPlayerName').val()
+      $('#player1 h3').text(game.players[0].name);
+    } else if (game.players[1].name === "Player 2") {
+      game.players[1].name = $('#addPlayerName').val()
       $('#player2 h3').text(game.players[1].name);
-      $('#player2 h1').text((game.players[1].character) || 'O');
     }
 
+    if (game.players[0].character === "X") {
+      game.players[0].character = $('#addPlayerCharacter').val()
+      $('#player1 h1').text((game.players[0].character));
+    } else if (game.players[1].character === "O") {
+      game.players[1].character = $('#addPlayerCharacter').val()
+      $('#player2 h1').text((game.players[1].character));
+    }
   });
 
   //function to reset everything or new game
@@ -137,7 +143,7 @@ $(document).ready(function () {
     $('#player2 p').text('Wins: 0');
     $('#addPlayerName').val('');
     $('#addPlayerCharacter').val('');
-    game.players = [];
+    // game.players = [];
     playerTurn = 'player1';
     turns = 0;
   })
@@ -151,22 +157,9 @@ $(document).ready(function () {
     $('#player2 p').text('Wins: 0');
   })
 
-  //function to close message once clicked
+  //f unction to close message once clicked
   $('#message').click(function () {
     $('#message').css('visibility', 'hidden');
     $('#container').css('visibility', 'visible');
   })
-
-
-
-
-
-
-
-
-
-
-
-
-
 });

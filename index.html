@@ -1,61 +1,62 @@
 <html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tic Tac Toe</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/jquery-1.7.2.js"></script>
-  <script src="js/main.js"></script>
-</head>
-<header>
-<h1 id="title"><span id="tic">TIC</span><span id="tac"> TAC</span><span id="toe"> TOE</span></h1>
-<div id="players">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/jquery-1.7.2.js"></script>
+    <script src="js/main.js"></script>
+  </head>
+  <header>
+    <h1 id="title">
+      <span id="tic">TIC</span><span id="tac"> TAC</span
+      ><span id="toe"> TOE</span>
+    </h1>
+    <div id="players">
+      <div id="player1">
+        <h3>Player 1</h3>
+        <h1>X</h1>
+        <p>Wins: 0</p>
+      </div>
 
-  <div id="player1">
-    <h3>Player 1</h3>
-    <h1>X</h1>
-    <p>Wins: 0</p>
-  </div>
+      <div id="addPlayer">
+        <input type="text" id="addPlayerName" placeholder="enter Name" />
+        <input type="text" id="addPlayerCharacter" placeholder="enter X or O" />
+        <input type="button" id="addPlayerButton" value="Add player" />
+      </div>
 
-  <div id="addPlayer">
-    <input type="text" id="addPlayerName" placeholder="enter Name" />
-    <input type="text" id="addPlayerCharacter" placeholder="enter X or O" />
-    <input type="button" id="addPlayerButton" value="Add player" />
-  </div>
+      <div id="player2">
+        <h3>Player 2</h3>
+        <h1>O</h1>
+        <p>Wins: 0</p>
+      </div>
+    </div>
+  </header>
 
-  <div id="player2">
-    <h3>Player 2</h3>
-    <h1>O</h1>
-    <p>Wins: 0</p>
-  </div>
-  
-</div>
-</header>
+  <body>
+    <!--Game Board-->
+    <div id="container">
+      <div class="grid-item" id="top-left"></div>
+      <div class="grid-item" id="top-mid"></div>
+      <div class="grid-item" id="top-right"></div>
+      <div class="grid-item" id="mid-left"></div>
+      <div class="grid-item" id="mid-mid"></div>
+      <div class="grid-item" id="mid-right"></div>
+      <div class="grid-item" id="bottom-left"></div>
+      <div class="grid-item" id="bottom-mid"></div>
+      <div class="grid-item" id="bottom-right"></div>
+    </div>
 
-<body>
-<!--Game Board-->
-  <div id="container">
-    <div class="grid-item" id="top-left"></div>
-    <div class="grid-item" id="top-mid"></div>
-    <div class="grid-item" id="top-right"></div>
-    <div class="grid-item" id="mid-left"></div>
-    <div class="grid-item" id="mid-mid"></div>
-    <div class="grid-item" id="mid-right"></div>
-    <div class="grid-item" id="bottom-left"></div>
-    <div class="grid-item" id="bottom-mid"></div>
-    <div class="grid-item" id="bottom-right"></div>
-  </div>
+    <div id="message">
+      <h1>O</h1>
+      <h3>Player 1</h3>
+      <p>Wins!</p>
+      <p class="clearMessage">Click to clear message</p>
+    </div>
+  </body>
 
-<div id="message">
-<h1>O</h1>
-<h3>Player 1</h3>
-<p>Wins!</p>
-</div>
-</body>
-
-
-<footer>
+  <footer>
     <input type="button" id="newGameButton" value="New Game" />
     <input type="button" id="resetWinsButton" value="Reset Wins" />
-</footer>
+  </footer>
 </html>
